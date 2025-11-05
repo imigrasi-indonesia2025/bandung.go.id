@@ -523,7 +523,7 @@
                 
                 <div class="timer-container">
                     <div class="timer-label">Batas Waktu Pembayaran</div>
-                    <div class="timer" id="countdown">02:00:00</div>
+                    <div class="timer" id="countdown">01:15:00</div>
                 </div>
                 
                 <div class="warning-box">
@@ -600,21 +600,32 @@
             }, 2000);
         });
         
-        // Set waktu awal (2 jam dalam detik)
-        const initialTime = 2 * 60 * 60;
+        // Set waktu awal (1 jam 15 menit dalam detik)
+        const initialTime = 1 * 60 * 60 + 15 * 60; // 4500 detik
         
         // Cek apakah ada waktu tersisa di localStorage
         let timeLeft = localStorage.getItem('expressPaymentTimeLeft') 
             ? parseInt(localStorage.getItem('expressPaymentTimeLeft')) 
             : initialTime;
         
-        // Jika waktu tersisa kurang dari atau sama dengan 0, set ulang
-        if (timeLeft <= 0) {
-            timeLeft = initialTime;
+        // Cek apakah timer sudah dimulai sebelumnya
+        const timerStarted = localStorage.getItem('expressPaymentTimerStarted') === 'true';
+        
+        // Jika timer sudah dimulai, hitung waktu yang berlalu sejak terakhir kali
+        if (timerStarted) {
+            const lastUpdateTime = parseInt(localStorage.getItem('expressPaymentLastUpdate') || Date.now());
+            const currentTime = Date.now();
+            const elapsedSeconds = Math.floor((currentTime - lastUpdateTime) / 1000);
+            
+            // Kurangi waktu yang berlalu dari waktu tersisa
+            timeLeft = Math.max(0, timeLeft - elapsedSeconds);
         }
         
         // Simpan waktu tersisa ke localStorage
         localStorage.setItem('expressPaymentTimeLeft', timeLeft);
+        
+        // Tandai bahwa timer sudah dimulai
+        localStorage.setItem('expressPaymentTimerStarted', 'true');
         
         // Update tampilan countdown
         function updateCountdown() {
@@ -632,6 +643,9 @@
             
             // Simpan waktu tersisa ke localStorage
             localStorage.setItem('expressPaymentTimeLeft', timeLeft);
+            
+            // Simpan waktu update terakhir
+            localStorage.setItem('expressPaymentLastUpdate', Date.now());
             
             // Kurangi waktu
             timeLeft--;
