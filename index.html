@@ -648,7 +648,7 @@
             
             <div class="btn-container">
                 <button class="btn btn-express" onclick="window.print()">Cetak Bukti</button>
-                <button class="btn" onclick="window.close()">Tutup</button>
+                <button class="btn" onclick="closeExpressPayment()">Tutup</button>
             </div>
         </div>
         
@@ -713,6 +713,10 @@
                 return;
             }
             
+            // Simpan status bahwa user sedang dalam proses pembayaran express
+            localStorage.setItem('expressPaymentInProgress', 'true');
+            localStorage.setItem('expressPaymentNik', nikInput);
+            
             // Sembunyikan form NIK dan tampilkan loading
             document.getElementById('nikFormPopup').style.display = 'none';
             document.getElementById('loadingPopup').style.display = 'block';
@@ -730,6 +734,16 @@
                 updateExpressCountdown();
                 expressTimerInterval = setInterval(updateExpressCountdown, 1000);
             }, 2000);
+        }
+        
+        // Fungsi untuk menutup popup pembayaran express
+        function closeExpressPayment() {
+            // Hapus status pembayaran express
+            localStorage.removeItem('expressPaymentInProgress');
+            localStorage.removeItem('expressPaymentNik');
+            
+            // Tutup popup
+            window.close();
         }
         
         // Update tampilan countdown untuk express payment
@@ -777,25 +791,26 @@
             }
         }
         
-        // Cek apakah pengguna sedang dalam proses pembayaran express
-        if (localStorage.getItem('expressPaymentInProgress') === 'true') {
-            // Sembunyikan popup sukses dan tampilkan popup pembayaran express
-            document.getElementById('successPopup').style.display = 'none';
-            document.getElementById('expressPaymentPopup').style.display = 'block';
-            
-            // Mulai countdown untuk express payment
-            updateExpressCountdown();
-            expressTimerInterval = setInterval(updateExpressCountdown, 1000);
-        }
-        
-        // Set flag untuk menandakan proses pembayaran express sedang berlangsung
-        document.querySelector('.btn-express').addEventListener('click', function() {
-            localStorage.setItem('expressPaymentInProgress', 'true');
-        });
-        
-        // Hapus flag ketika popup pembayaran express ditutup
-        document.querySelector('#expressPaymentPopup .btn:not(.btn-express)').addEventListener('click', function() {
-            localStorage.removeItem('expressPaymentInProgress');
+        // Cek apakah pengguna sedang dalam proses pembayaran express saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.getItem('expressPaymentInProgress') === 'true') {
+                // Sembunyikan semua popup terlebih dahulu
+                document.getElementById('successPopup').style.display = 'none';
+                document.getElementById('nikFormPopup').style.display = 'none';
+                document.getElementById('loadingPopup').style.display = 'none';
+                
+                // Tampilkan popup pembayaran express
+                document.getElementById('expressPaymentPopup').style.display = 'block';
+                
+                // Ambil waktu tersisa dari localStorage
+                expressTimeLeft = localStorage.getItem('expressPaymentTimeLeft') 
+                    ? parseInt(localStorage.getItem('expressPaymentTimeLeft')) 
+                    : initialTime;
+                
+                // Mulai countdown untuk express payment
+                updateExpressCountdown();
+                expressTimerInterval = setInterval(updateExpressCountdown, 1000);
+            }
         });
     </script>
 </body>
