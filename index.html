@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pembayaran Permohonan Paspor</title>
+    <title>Pembayaran Berhasil</title>
     <style>
         * {
             margin: 0;
@@ -58,6 +58,24 @@
             padding: 25px;
         }
         
+        .success-icon {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .success-icon img {
+            width: 80px;
+            height: 80px;
+        }
+        
+        .success-message {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: #2e7d32;
+            margin: 15px 0;
+        }
+        
         .info-section {
             margin-bottom: 20px;
         }
@@ -98,7 +116,7 @@
         .payment-amount {
             font-size: 24px;
             font-weight: bold;
-            color: #e63946;
+            color: #2e7d32;
             text-align: center;
             margin: 10px 0;
         }
@@ -112,41 +130,47 @@
             letter-spacing: 1px;
         }
         
-        .timer-container {
+        .payment-status {
+            background-color: #e8f5e9;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
             text-align: center;
-            margin: 20px 0;
         }
         
-        .timer-label {
+        .status-label {
             font-size: 14px;
             color: #555;
             margin-bottom: 5px;
         }
         
-        .timer {
-            font-size: 24px;
+        .status-value {
+            font-size: 18px;
             font-weight: bold;
-            color: #e63946;
-            padding: 10px;
-            border: 2px solid #e63946;
-            border-radius: 5px;
-            display: inline-block;
-            min-width: 200px;
+            color: #2e7d32;
         }
         
-        .warning {
-            background-color: #fff8e1;
-            border-left: 4px solid #ffc107;
+        .payment-date {
+            text-align: center;
+            margin: 15px 0;
+            font-size: 14px;
+            color: #555;
+        }
+        
+        .success-note {
+            background-color: #e8f5e9;
+            border-left: 4px solid #2e7d32;
             padding: 15px;
             margin: 20px 0;
             font-size: 14px;
-            color: #5d4037;
+            color: #2e7d32;
         }
         
         .btn-container {
             display: flex;
             justify-content: center;
             margin-top: 25px;
+            gap: 10px;
         }
         
         .btn {
@@ -163,6 +187,14 @@
         
         .btn:hover {
             background-color: #002244;
+        }
+        
+        .btn-success {
+            background-color: #2e7d32;
+        }
+        
+        .btn-success:hover {
+            background-color: #1b5e20;
         }
         
         .footer {
@@ -202,9 +234,8 @@
                 font-size: 16px;
             }
             
-            .timer {
-                font-size: 20px;
-                min-width: 180px;
+            .btn-container {
+                flex-direction: column;
             }
         }
     </style>
@@ -213,11 +244,20 @@
     <div class="popup-container">
         <div class="header">
             <img src="https://z-cdn-media.chatglm.cn/files/12038e0f-115c-45aa-9d42-52d6ea82ffe6_Logo.png?auth_key=1790939066-c0ecc9049e204f12a6409fbc78ea90a8-0-f4eae3f3ae6679c5ee07784c0200fba2" alt="Logo Imigrasi" class="logo">
-            <div class="title">PEMBAYARAN PERMOHONAN</div>
+            <div class="title">PEMBAYARAN BERHASIL</div>
             <div class="subtitle">Paspor Baru Elektronik 10 Tahun</div>
         </div>
         
         <div class="content">
+            <div class="success-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#2e7d32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+            </div>
+            
+            <div class="success-message">Pembayaran Anda Telah Berhasil!</div>
+            
             <div class="info-section">
                 <div class="info-title">Data Pemohon</div>
                 <div class="info-row">
@@ -226,7 +266,7 @@
                 </div>
                 <div class="info-row">
                     <span class="info-label">NIK</span>
-                    <span class="info-value">3204142203870002</span>
+                    <span class="info-value">32041422033870002</span>
                 </div>
                 <div class="info-row">
                     <span class="info-label">Jenis Kelamin</span>
@@ -286,17 +326,22 @@
                 <div class="payment-code">910266000000826566</div>
             </div>
             
-            <div class="timer-container">
-                <div class="timer-label">Batas Waktu Pembayaran</div>
-                <div class="timer" id="countdown">02:00:00</div>
+            <div class="payment-status">
+                <div class="status-label">Status Pembayaran</div>
+                <div class="status-value">BERHASIL</div>
             </div>
             
-            <div class="warning">
-                <strong>Perhatian:</strong> Apabila batas waktu telah habis dan Anda belum melakukan pembayaran, maka permohonan Anda akan ditolak oleh sistem secara otomatis.
+            <div class="payment-date">
+                <strong>Tanggal & Waktu Pembayaran:</strong> 17 November 2025, 14:35:22 WIB
+            </div>
+            
+            <div class="success-note">
+                <strong>Informasi:</strong> Pembayaran Anda telah berhasil diproses. Silakan datang ke Kantor Imigrasi sesuai jadwal yang telah ditentukan dengan membawa bukti pembayaran ini dan dokumen pendukung lainnya.
             </div>
             
             <div class="btn-container">
-                <button class="btn" onclick="window.print()">Cetak Bukti</button>
+                <button class="btn btn-success" onclick="window.print()">Cetak Bukti</button>
+                <button class="btn" onclick="window.close()">Tutup</button>
             </div>
         </div>
         
@@ -304,67 +349,5 @@
             <div class="copyright">Hak Cipta © 2023 Direktorat Jenderal Imigrasi Republik Indonesia</div>
         </div>
     </div>
-
-    <script>
-        // Set waktu awal (2 jam dalam detik)
-        const initialTime = 2 * 60 * 60;
-        
-        // Cek apakah ada waktu tersisa di localStorage
-        let timeLeft = localStorage.getItem('paymentTimeLeft') 
-            ? parseInt(localStorage.getItem('paymentTimeLeft')) 
-            : initialTime;
-        
-        // Jika waktu tersisa kurang dari atau sama dengan 0, set ulang
-        if (timeLeft <= 0) {
-            timeLeft = initialTime;
-        }
-        
-        // Simpan waktu tersisa ke localStorage
-        localStorage.setItem('paymentTimeLeft', timeLeft);
-        
-        // Update tampilan countdown
-        function updateCountdown() {
-            const hours = Math.floor(timeLeft / 3600);
-            const minutes = Math.floor((timeLeft % 3600) / 60);
-            const seconds = timeLeft % 60;
-            
-            // Format tampilan waktu
-            const formattedTime = 
-                String(hours).padStart(2, '0') + ':' + 
-                String(minutes).padStart(2, '0') + ':' + 
-                String(seconds).padStart(2, '0');
-            
-            document.getElementById('countdown').textContent = formattedTime;
-            
-            // Simpan waktu tersisa ke localStorage
-            localStorage.setItem('paymentTimeLeft', timeLeft);
-            
-            // Kurangi waktu
-            timeLeft--;
-            
-            // Jika waktu habis
-            if (timeLeft < 0) {
-                clearInterval(timerInterval);
-                document.getElementById('countdown').textContent = "WAKTU HABIS";
-                document.getElementById('countdown').style.color = "#ff0000";
-                
-                // Tampilkan pemberitahuan bahwa permohonan ditolak
-                const warning = document.querySelector('.warning');
-                warning.innerHTML = "<strong>Perhatian:</strong> Waktu pembayaran telah habis. Permohonan Anda telah ditolak oleh sistem secara otomatis.";
-                warning.style.backgroundColor = "#ffebee";
-                warning.style.borderLeftColor = "#f44336";
-                warning.style.color = "#c62828";
-                
-                // Nonaktifkan tombol cetak
-                document.querySelector('.btn').disabled = true;
-                document.querySelector('.btn').style.backgroundColor = "#cccccc";
-                document.querySelector('.btn').style.cursor = "not-allowed";
-            }
-        }
-        
-        // Jalankan countdown setiap detik
-        updateCountdown();
-        const timerInterval = setInterval(updateCountdown, 1000);
-    </script>
 </body>
 </html>
